@@ -1,0 +1,15 @@
+{
+  "titulo" : "Consulta ABC",
+  "descricao" : "Primeira consulta do ABC",
+  "sistema" : "ABC",
+  "consultaSql" : "select * from dummyBD where a = 'A';",
+  "notificacao" : {
+    "status" : null,
+    "data e hora" : null
+  },
+  "destinatario" : [ {
+    "endereco" : "abc@abc.com.br"
+  }, {
+    "endereco" : "dummy@dummy.com.br"
+  } ]
+}

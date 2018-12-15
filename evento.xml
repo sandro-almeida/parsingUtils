@@ -1,0 +1,18 @@
+<Evento>
+  <titulo>Consulta ABCDE</titulo>
+  <descricao>Primeira consulta do ABCDE</descricao>
+  <sistema>ABC</sistema>
+  <consultaSql>select * from dummyBD where a = 'A';</consultaSql>
+  <notificacao>
+    <status/>
+    <dataHora/>
+  </notificacao>
+  <destinatarios>
+    <destinatarios>
+      <endereco>abcde@abc.com.br</endereco>
+    </destinatarios>
+    <destinatarios>
+      <endereco>veryDummy@dummy.com.br</endereco>
+    </destinatarios>
+  </destinatarios>
+</Evento>
