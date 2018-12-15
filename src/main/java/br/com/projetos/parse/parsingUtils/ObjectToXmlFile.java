@@ -14,7 +14,6 @@ import br.com.projetos.parse.parsingUtils.dominios.Notificacao;
 
 public class ObjectToXmlFile {
 
-	//TODO: fazer um parse generico que aceite qualquer objeto e gere o Xml
 	String fileName;
 	private static final String FILE_PATH = "./";
 	
@@ -22,8 +21,8 @@ public class ObjectToXmlFile {
 		super();
 		this.fileName = FILE_PATH + fileName;
 	}
-
-	public void parseEvento(Evento evento) throws IOException {
+	
+	public void parseObject(Object o) throws IOException {
 
 		XmlMapper xmlMapper = new XmlMapper();
 		xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -31,7 +30,7 @@ public class ObjectToXmlFile {
 		File outputFile = new File(fileName);
 
 		// Serialize Java Objects to Xml file
-		xmlMapper.writeValue(outputFile, evento);
+		xmlMapper.writeValue(outputFile, o);
 
 	}
 	
@@ -49,7 +48,7 @@ public class ObjectToXmlFile {
 		ObjectToXmlFile obj = new ObjectToXmlFile("evento.xml");
 		
 		try {
-			obj.parseEvento(evento);
+			obj.parseObject(evento);
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("ERRO: parse falhou !!!");

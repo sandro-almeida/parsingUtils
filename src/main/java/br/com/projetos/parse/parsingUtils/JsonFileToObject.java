@@ -19,15 +19,16 @@ public class JsonFileToObject {
 		this.fileName = FILE_PATH  + fileName;
 	}
 	
-	public Evento parseEvento () throws JsonParseException, JsonMappingException, IOException {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Object parseObject (Class c) throws JsonParseException, JsonMappingException, IOException {
 		
 		ObjectMapper objectMapper = new ObjectMapper();
 		
 		File file = new File(fileName);
 		
-		Evento evento = objectMapper.readValue(file, Evento.class);
+		Object obj = objectMapper.readValue(file, c);
 		
-		return evento;
+		return obj;
 	}
 
 	public static void main(String[] args) {
@@ -36,7 +37,7 @@ public class JsonFileToObject {
 		Evento evento = null;
 		
 		try {
-			evento = obj.parseEvento();
+			evento = (Evento) obj.parseObject(Evento.class);
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

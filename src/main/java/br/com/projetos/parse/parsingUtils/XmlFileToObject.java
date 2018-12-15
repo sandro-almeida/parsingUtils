@@ -19,15 +19,16 @@ public class XmlFileToObject {
 		this.fileName = FILE_PATH  + fileName;
 	}
 	
-	public Evento parseEvento () throws JsonParseException, JsonMappingException, IOException {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Object parseObject (Class c) throws JsonParseException, JsonMappingException, IOException {
 		
 		XmlMapper xmlMapper = new XmlMapper();
 		
 		File file = new File(fileName);
 		
-		Evento evento = xmlMapper.readValue(file, Evento.class);
+		Object o = xmlMapper.readValue(file, c);
 		
-		return evento;
+		return o;
 	}
 
 	public static void main(String[] args) {
@@ -36,7 +37,7 @@ public class XmlFileToObject {
 		Evento evento = null;
 		
 		try {
-			evento = obj.parseEvento();
+			evento = (Evento) obj.parseObject(Evento.class);
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

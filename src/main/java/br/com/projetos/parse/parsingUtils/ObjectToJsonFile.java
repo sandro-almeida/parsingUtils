@@ -13,7 +13,7 @@ import br.com.projetos.parse.parsingUtils.dominios.Evento;
 import br.com.projetos.parse.parsingUtils.dominios.Notificacao;
 
 public class ObjectToJsonFile {
-	//TODO: fazer um parse generico que aceite qualquer objeto e gere o Json
+
 	String fileName;
 	private static final String FILE_PATH = "./";
 	
@@ -22,7 +22,7 @@ public class ObjectToJsonFile {
 		this.fileName = FILE_PATH + fileName;
 	}
 
-	public void parseEvento(Evento evento) throws IOException {
+	public void parseObject(Object o) throws IOException {
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -30,7 +30,7 @@ public class ObjectToJsonFile {
 		File outputFile = new File(fileName);
 
 		// Serialize Java Objects to Json file
-		objectMapper.writeValue(outputFile, evento);
+		objectMapper.writeValue(outputFile, o);
 
 	}
 	
@@ -48,7 +48,7 @@ public class ObjectToJsonFile {
 		ObjectToJsonFile obj = new ObjectToJsonFile("evento.json");
 		
 		try {
-			obj.parseEvento(evento);
+			obj.parseObject(evento);
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("ERRO: parse falhou !!!");
