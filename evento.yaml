@@ -1,0 +1,11 @@
+---
+titulo: "Consulta Yaml from file"
+descricao: "Primeira consulta do Yaml"
+sistema: "YAML"
+consultaSql: "select * from dummyBD where a = 'A';"
+notificacao:
+  status: null
+  data e hora: null
+destinatario:
+- endereco: "abc@abc.com.br"
+- endereco: "dummy@dummy.com.br"
